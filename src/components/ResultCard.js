@@ -24,10 +24,10 @@ export const ResultCard = ({ movie }) => {
   return (
     <div className="result-card">
       <div className="poster-wrapper">
-        {movie.poster_path ? (
+        {movie.Poster ? (
           <img
-            src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-            alt={`${movie.title} Poster`}
+            src={`${movie.Poster}`}
+            alt={`${movie.Title} Poster`}
           />
         ) : (
           <div className="filler-poster" />
@@ -36,9 +36,9 @@ export const ResultCard = ({ movie }) => {
 
       <div className="info">
         <div className="header">
-          <h3 className="title">{movie.title}</h3>
+          <h3 className="title">{movie.Title}</h3>
           <h4 className="release-date">
-            <Moment format="YYYY">{movie.release_date}</Moment>
+            <Moment format="YYYY">{movie.Year}</Moment>
           </h4>
         </div>
 
