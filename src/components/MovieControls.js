@@ -19,7 +19,7 @@ export const MovieControls = ({ type, movie }) => {
 
           <button
             className="ctrl-btn"
-            onClick={() => removeMovieFromWatchlist(movie.id)}
+            onClick={() => removeMovieFromWatchlist(movie.imdbID)}
           >
             <i className="fa-fw fa fa-times"></i>
           </button>
@@ -34,7 +34,7 @@ export const MovieControls = ({ type, movie }) => {
 
           <button
             className="ctrl-btn"
-            onClick={() => removeFromWatched(movie.id)}
+            onClick={() => removeFromWatched(movie.imdbID)}
           >
             <i className="fa-fw fa fa-times"></i>
           </button>

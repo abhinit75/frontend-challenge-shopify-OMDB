@@ -1,59 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 //var omdb = require('omdb');
 import { ResultCard } from "./ResultCard";
+import { SearchBox } from "./SearchBox";
 
 export const Add = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   
 
-  const onChange = (e) => {
-    e.preventDefault();
+  const getMovieRequest = async (query) => {
+    const url = `http://www.omdbapi.com/?s=${query}&apikey=8e8b9514&`
 
-    setQuery(e.target.value);
+    const response = await fetch(url);
+		const responseJson = await response.json();
 
-    fetch(
-      `http://www.omdbapi.com/?s=Avengers&apikey=8e8b9514`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        if(!data.errors) {
-          setResults(data.Search);
+		if (responseJson.Search) {
+          setResults(responseJson.Search);
         } else {
           setResults([]);
         }
         }
-      );
-  };
+  useEffect(() => {
+    getMovieRequest(query);
+  }, [query]);
+
 
   return (
     <div className="add-page">
       <div className="container">
         <div className="add-content">
           <div className="input-wrapper">
-            <input
-              type="text"
-              placeholder="Search for a movie"
-              value={query}
-              onChange={onChange}
-            />
+            <SearchBox searchValue={query} setSearchValue={setQuery} />
           </div>
+
           {results.length > 0 && (
             <ul className="results">
               {results.map((movie) => (
-                <li key={movie.id}>
+                <li key={movie.imdbID}>
                   <ResultCard movie={movie} />
                 </li>
               ))}
             </ul>
           )}
+          
         </div>
       </div>
     </div>
   );
 };
-
-/*
-
-
-*/

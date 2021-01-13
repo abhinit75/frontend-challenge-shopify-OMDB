@@ -19,7 +19,7 @@ export const Watchlist = () => {
         {watchlist.length > 0 ? (
           <div className="movie-grid">
             {watchlist.map((movie) => (
-              <MovieCard movie={movie} key={movie.id} type="watchlist" />
+              <MovieCard movie={movie} key={movie.imdbID} type="watchlist" />
             ))}
           </div>
         ) : (

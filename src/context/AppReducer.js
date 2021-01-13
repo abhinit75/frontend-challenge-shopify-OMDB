@@ -1,5 +1,5 @@
+/* eslint-disable import/no-anonymous-default-export */
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default (state, action) => {
   switch (action.type) {
     case "ADD_MOVIE_TO_WATCHLIST":
@@ -11,14 +11,14 @@ export default (state, action) => {
       return {
         ...state,
         watchlist: state.watchlist.filter(
-          (movie) => movie.id !== action.payload
+          (movie) => movie.imdbID !== action.payload
         ),
       };
     case "ADD_MOVIE_TO_WATCHED":
       return {
         ...state,
         watchlist: state.watchlist.filter(
-          (movie) => movie.id !== action.payload.id
+          (movie) => movie.imdbID !== action.payload.id
         ),
         watched: [action.payload, ...state.watched],
       };
@@ -26,14 +26,14 @@ export default (state, action) => {
       return {
         ...state,
         watched: state.watched.filter(
-          (movie) => movie.id !== action.payload.id
+          (movie) => movie.imdbID !== action.payload.id
         ),
         watchlist: [action.payload, ...state.watchlist],
       };
     case "REMOVE_FROM_WATCHED":
       return {
         ...state,
-        watched: state.watched.filter((movie) => movie.id !== action.payload),
+        watched: state.watched.filter((movie) => movie.imdbID !== action.payload),
       };
     default:
       return state;

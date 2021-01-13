@@ -10,8 +10,8 @@ export const ResultCard = ({ movie }) => {
     watched,
   } = useContext(GlobalContext);
 
-  let storedMovie = watchlist.find((o) => o.id === movie.id);
-  let storedMovieWatched = watched.find((o) => o.id === movie.id);
+  let storedMovie = watchlist.find((o) => o.imdbID === movie.imdbID);
+  let storedMovieWatched = watched.find((o) => o.imdbID === movie.imdbID);
 
   const watchlistDisabled = storedMovie
     ? true
