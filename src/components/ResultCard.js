@@ -1,6 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Moment from "react-moment";
 import { GlobalContext } from "../context/GlobalState";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 export const ResultCard = ({ movie }) => {
   const {
@@ -15,6 +17,10 @@ export const ResultCard = ({ movie }) => {
   const watchlistDisabled = storedMovie || watchlist.length >= 5 
     ? true
     : false;
+  
+  const [open, setOpen] = useState(false);
+  const closeModal = () => setOpen(false);
+    
 
   return (
     <div className="result-card">
@@ -46,7 +52,23 @@ export const ResultCard = ({ movie }) => {
             Add to Nominations
           </button> 
         </div>
+
+        <div className="controls">
+        <div>
+              {watchlist.length >= 5 ? (
+                <Popup open={true} closeOnDocumentClick onClose={closeModal}>
+                  <div className="modal">
+                    <a className="close" onClick={closeModal}>
+                      &times;
+                    </a>
+                    You have reached your 5 movies limit!
+                  </div>
+                </Popup>
+              ) : (
+                <h1>You can add upto 5 movies</h1>
+              )}
+            </div>
+        </div>
       </div>
     </div>
-  );
-};
+  )};
