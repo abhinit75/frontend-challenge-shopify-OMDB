@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Deployed Project
-The project can be access here: https://omdb-movie-nominations.herokuapp.com/
+The project can be accessed here: https://omdb-movie-nominations.herokuapp.com/
 
 ## Project information
 
