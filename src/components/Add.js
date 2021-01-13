@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-//var omdb = require('omdb');
 import { ResultCard } from "./ResultCard";
 import { SearchBox } from "./SearchBox";
 
