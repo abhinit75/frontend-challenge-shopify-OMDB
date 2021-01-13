@@ -10,7 +10,9 @@ export const ResultCard = ({ movie }) => {
 
   let storedMovie = watchlist.find((o) => o.imdbID === movie.imdbID);
 
-  const watchlistDisabled = storedMovie
+  console.log(storedMovie);
+
+  const watchlistDisabled = storedMovie || watchlist.length >= 5 
     ? true
     : false;
 
