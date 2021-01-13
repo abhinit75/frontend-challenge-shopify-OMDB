@@ -54,7 +54,7 @@ export const ResultCard = ({ movie }) => {
         </div>
 
         <div className="controls">
-        <div>
+        <div className="popup">
               {watchlist.length >= 5 ? (
                 <Popup open={true} closeOnDocumentClick onClose={closeModal}>
                   <div className="modal">
@@ -72,3 +72,5 @@ export const ResultCard = ({ movie }) => {
       </div>
     </div>
   )};
+
+  
