@@ -8,7 +8,7 @@ export const Add = () => {
   
 
   const getMovieRequest = async (query) => {
-    const url = `http://www.omdbapi.com/?s=${query}&apikey=8e8b9514&`
+    const url = `https://www.omdbapi.com/?s=${query}&apikey=8e8b9514&`
 
     const response = await fetch(url);
 		const responseJson = await response.json();
