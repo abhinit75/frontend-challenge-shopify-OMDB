@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Deployed Project
+The project can be access here: https://omdb-movie-nominations.herokuapp.com/
+
+## Project information
+
+The Project was built using REACT JS. I incorporated REACT Hooks and Context API to faciliate API calls to OMDB Free Open Source API.
+The project is deployed using Heroku. 
+
 ## Available Scripts
 
 In the project directory, you can run:
